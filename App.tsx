@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ArticleCard from './components/ArticleCard';
 import TableOfContents from './components/TableOfContents';
-import { processContentWithTOC } from './utils';
+import { processContentWithTOC, calculateReadingTime } from './utils';
+import { usePostViews } from './hooks/usePostViews';
 import { BLOG_POSTS } from './constants';
 import { BlogPost } from './types';
 
@@ -45,6 +46,12 @@ const PostDetailView: React.FC = () => {
     return processContentWithTOC(post.content);
   }, [post.content]);
 
+  // Calculate reading time
+  const readingTime = useMemo(() => calculateReadingTime(post.content), [post.content]);
+
+  // Get view counts from Supabase
+  const { viewCount, isLoading: viewsLoading } = usePostViews(post.id);
+
   return (
     <div className="max-w-[1400px] mx-auto px-[15px] py-[50px]">
 
@@ -78,11 +85,17 @@ const PostDetailView: React.FC = () => {
             </h2>
           )}
 
-          {/* Meta Data */}
-          <div className="flex items-center text-xs md:text-sm text-gray-500 mb-8 border-b border-gray-100 pb-8">
+          {/* Meta Data with Reading Time and View Count */}
+          <div className="flex flex-wrap items-center text-xs md:text-sm text-gray-500 mb-8 border-b border-gray-100 pb-8 gap-x-2">
             <span className="mr-2">最終更新日 : {post.date}</span>
             <span className="mx-2">|</span>
             <span className="font-medium">{post.author.name} {post.author.role}</span>
+            <span className="mx-2">|</span>
+            <span className="text-gray-400">📖 {readingTime} min read</span>
+            <span className="mx-2">|</span>
+            <span className="text-gray-400">
+              👁 {viewsLoading ? '...' : (viewCount?.toLocaleString() ?? '0')} views
+            </span>
           </div>
 
           {/* Table of Contents */}
