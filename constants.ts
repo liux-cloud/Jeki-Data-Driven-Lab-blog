@@ -142,7 +142,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <ol class="list-decimal pl-6 mb-6 text-black space-y-3">
         <li><strong class="text-black">プロジェクト作成:</strong> Supabaseで新規プロジェクトを作り、URLとAPIキーを取得。</li>
         <div class="my-6">
-          <img src="/images/supabase-api-keys.png" alt="Supabase API Keys" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+          <img src="/images/supabase-api-keys-protected.png" alt="Supabase API Keys" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
           <p class="text-xs text-gray-400 mt-2 text-center">Supabaseのプロジェクト設定画面（APIキーの取得）</p>
         </div>
         <li><strong class="text-black">環境変数設定:</strong> Antigravityが用意した .env ファイルに、先ほどのURLとキーを貼り付け。</li>
