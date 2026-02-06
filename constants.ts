@@ -180,7 +180,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">AIがGit操作もサポート</h4>
       <p>
-        「Gitコマンドなんて分からない」という方も安心してください。AIに指示すれば、リポジトリの初期化からコミット、プッシュまでのコマンド（<code>git init, git add, git commit</code>）を教えてくれます。
+        「Gitコマンドなんて分からない」という方も安心してください。AIに指示すれば、リポジリの初期化からコミット、プッシュまでのコマンド（<code>git init, git add, git commit</code>）を教えてくれます。
       </p>
       <p>
         GitHubで新しいリポジトリを「Public」で作成し、そこにコードをアップロード（プッシュ）します。これがクラウド公開への切符となります。
@@ -206,7 +206,15 @@ export const BLOG_POSTS: BlogPost[] = [
       </div>
 
       <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ボーナス：SEO最適化とアナリティクス</h2>
-      <p>公開したブログを多くの人に見てもらうために、SEO対策とアクセス解析も重要です。</p>
+      <p>次に、Supabaseの管理画面から「Project Settings」→「API」を開き、以下の2つの情報をコピーしてください。</p>
+      <div class="my-8">
+        <img 
+          src="/supabase-api-keys.png" 
+          alt="Supabase API Keys Settings" 
+          class="w-full rounded-lg shadow-md border border-gray-100"
+        />
+        <p class="text-sm text-gray-500 mt-2 text-center italic">Project URL と API Key (anon public) を取得します（APIキーは公開しないよう注意してください）</p>
+      </div>
       <ul class="list-disc pl-6 mb-6 text-black space-y-2">
         <li>Meta タグと Open Graph タグの自動設定</li>
         <li>Sitemap.xml と Robots.txt の生成</li>
