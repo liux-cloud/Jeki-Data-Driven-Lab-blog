@@ -60,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">直感的なデザイン生成</h4>
       <p>
-        まずは「モバイルアプリ」か「PCウェブアプリ」を選択し、作りたいアプリのイメージ（例：「Sakura Zen Clinic（和風モダンなクリニック予約サイト）」）をテキストで入力するだけです。GoogleのImage 2.5やImage 3モデルが、あなたの言葉を瞬時にデザインへと変換します。
+        まずは「モバイルアプリ」か「PCウェブアプリ」を選択し、作りたいアプリのイメージ（例：「Jeki Data-Driven Lab ブログ（データ分析とマーケティングに関する知見を共有する技術ブログ）」）をテキストで入力するだけです。GoogleのImage 2.5やImage 3モデルが、あなたの言葉を瞬時にデザインへと変換します。
       </p>
       <p>
         さらにRedesign機能を使えば、参考にしたい既存のWebサイトやスクリーンショットを読み込ませて、「これと同じような雰囲気で」と指示することも可能です。
@@ -69,12 +69,12 @@ export const BLOG_POSTS: BlogPost[] = [
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">こだわりの詳細編集</h4>
       <p>生成されたデザインは、驚くほど細かく編集できます。</p>
       <ul class="list-disc pl-6 mb-6 text-black space-y-3">
-        <li><strong class="text-black">AIチャット編集 (Add to chat):</strong> ページ全体に対して、「テキストをすべて日本語に変更して」「フォントをSource Han Sansにして」といった指示を一括で適用できます。</li>
-        <li><strong class="text-black">注釈による精密修正 (Annotate):</strong> ここがStitchの凄いところです。修正したい箇所を四角く囲んで（バウンディングボックス）、「診療科目から『歯科』を削除」「地図の表示範囲をクリニック周辺にズーム」といったピンポイントな指示が出せます。</li>
+        <li><strong class="text-black">AIチャット編集 (Add to chat):</strong> ページ全体に対して、「テキストをすべて日本語に変更して」「フォントをYakuHanJPsにして」といった指示を一括で適用できます。</li>
+        <li><strong class="text-black">注釈による精密修正 (Annotate):</strong> ここがStitchの凄いところです。修正したい箇所を四角く囲んで（バウンディングボックス）、「記事カードの間隔を広げて」「サイドバーの幅を280pxに固定」といったピンポイントな指示が出せます。</li>
         <li><strong class="text-black">テーマ編集 (Edit Theme):</strong> ダークモード/ライトモードの切り替えや、ブランドカラーの変更もワンクリックで完了。ヒートマップ予測機能を使えば、ユーザーがどこに注目するかをAIが分析してくれるので、UXの改善にも役立ちます。</li>
       </ul>
 
-      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ2：AI Studioを使用したフロントエンドの統合</h2>
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ2:AI Studioを使用したフロントエンドの統合</h2>
       <h3 class="text-lg font-medium text-gray-500 mb-4 italic">AI Studio Coding Interface</h3>
       
       <p>
@@ -83,15 +83,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">バラバラのページを一つに</h4>
       <p>
-        Stitchで作成したすべてのページ（ウェルカム画面、一覧、詳細、マイページなど）を選択し、「Export to AI Studio」を実行します。これだけで、デザインがコードとしてAI Studioに渡されます。
+        Stitchで作成したすべてのページ（トップページ、記事一覧、記事詳細、サイドバーなど）を選択し、「Export to AI Studio」を実行します。これだけで、デザインがコードとしてAI Studioに渡されます。
       </p>
 
-      <h4 class="text-lg font-bold mt-6 mb-2 text-black">アプリとしての命を吹き込む</h4>
+      <h4 class="text-lg font-bold mt-6 mb-2 text-black">ア プリとしての命を吹き込む</h4>
       <p>
         AI Studio上でモデルを実行すると、各ページが相互にリンクされ、クリック操作が可能な一つのアプリとして統合されます。
       </p>
       <ul class="list-disc pl-6 mb-6 text-black space-y-3">
-        <li><strong class="text-black">動作の修正:</strong> プレビュー画面で実際に操作してみましょう。「予約ボタンを押しても反応しない」といった不具合があれば、AIにチャットで指示するだけで、画面遷移や通知機能を追加してくれます。</li>
+        <li><strong class="text-black">動作の修正:</strong> プレビュー画面で実際に操作してみましょう。「目次をクリックしてもスクロールしない」「記事カードのホバー効果が動作しない」といった不具合があれば、AIにチャットで指示するだけで、画面遷移やアニメーションを追加してくれます。</li>
       </ul>
       <p>この段階ではまだデータは保存されませんが、アプリの「ガワ」と「動き」は完全に出来上がります。</p>
 
@@ -112,9 +112,9 @@ export const BLOG_POSTS: BlogPost[] = [
       <ol class="list-decimal pl-6 mb-6 text-black space-y-3">
         <li><strong class="text-black">プロジェクト作成:</strong> Supabaseで新規プロジェクトを作り、URLとAPIキーを取得。</li>
         <li><strong class="text-black">環境変数設定:</strong> Antigravityが用意した .env ファイルに、先ほどのURLとキーを貼り付け。</li>
-        <li><strong class="text-black">テーブル一括作成:</strong> 生成された init.sql をSupabaseのSQLエディタに貼り付けて実行。これだけで、「予約履歴」「患者カルテ」「診療メニュー」といった必要なテーブルがすべて作成されます。</li>
+        <li><strong class="text-black">テーブル一括作成:</strong> 生成された SQL をSupabaseのSQLエディタに貼り付けて実行。これだけで、「post_views（記事閲覧数）」テーブルが作成され、閲覧数のトラッキングが可能になります。</li>
       </ol>
-      <p>最後に <code>npm run dev</code> コマンドを実行すれば、ユーザー登録、ログイン、予約データの保存まで、完全に機能するアプリがローカル環境で動き出します。</p>
+      <p>最後に <code>npm run dev</code> コマンドを実行すれば、記事の閲覧数カウント、読了時間の表示まで、完全に機能するブログがローカル環境で動き出します。</p>
 
       <!-- NOTE -->
       <div class="bg-gray-100 border-gray-300 text-gray-800 border-l-4 p-5 my-8 rounded-r-md text-sm md:text-base">
@@ -143,34 +143,26 @@ export const BLOG_POSTS: BlogPost[] = [
         GitHubで新しいリポジトリを「Public」で作成し、そこにコードをアップロード（プッシュ）します。これがクラウド公開への切符となります。
       </p>
 
-      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ5：Vercelを使用したクラウドデプロイ</h2>
-      <p>いよいよ公開の時です。今回は「Vercel」を使用して、世界中の人がアクセスできるようにします。</p>
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ5：WinSCPを使用したサーバーへのデプロイ</h2>
+      <p>いよいよ公開の時です。今回は「WinSCP」を使用して、サーバーに手動でファイルをアップロードします。</p>
 
-      <h4 class="text-lg font-bold mt-6 mb-2 text-black">Vercel連携とビルド設定</h4>
-      <p>VercelにGitHubアカウントでログインし、ステップ4で作成したリポジトリをインポートします。設定は以下の通りです。</p>
-      <ul class="list-disc pl-6 mb-6 text-black space-y-2">
-        <li><strong class="text-black">Build Command:</strong> <code>npm run build</code></li>
-        <li><strong class="text-black">Output Directory:</strong> <code>dist</code></li>
-        <li><strong class="text-black">Install Command:</strong> <code>npm install</code></li>
-      </ul>
-
-      <h4 class="text-lg font-bold mt-6 mb-2 text-black">環境変数の設定</h4>
       <p>
-        忘れてはいけないのが「環境変数」です。ローカルでも使用したSupabaseのURLとAPIキーを、Vercelの設定画面にも入力します。
+        WinSCP は Windows 上で使用する SFTP/FTP クライアントです。まず、<code>npm run build</code> コマンドでビルドを実行し、<code>dist</code> フォルダ内に生成されたファイルを確認します。
       </p>
       <p>
-        設定完了後、「Deploy」ボタンを押せばビルドが始まります。数分後、あなただけのWebアプリの公開URLが発行されます！
+        WinSCPでサーバーに接続後、ビルドされたファイル（<code>dist</code> フォルダの中身）をサーバーの公開ディレクトリ（例：<code>/var/www/html</code>）にアップロードします。数分後、設定したドメインからブログにアクセスできるようになります！
       </p>
 
-      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ボーナス：管理画面（Admin Panel）も爆速で</h2>
-      <p>ユーザー向けのアプリだけでなく、運営用の管理画面も同じプロセスで作れてしまいます。</p>
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ボーナス：SEO最適化とアナリティクス</h2>
+      <p>公開したブログを多くの人に見てもらうために、SEO対策とアクセス解析も重要です。</p>
       <ul class="list-disc pl-6 mb-6 text-black space-y-2">
-        <li>ダッシュボードでの来院数統計確認</li>
-        <li>新しい診療メニューの登録（画像のアップロード）</li>
-        <li>患者様からの予約リクエストの承認・日時変更</li>
+        <li>Meta タグと Open Graph タグの自動設定</li>
+        <li>Sitemap.xml と Robots.txt の生成</li>
+        <li>Schema.org 構造化データによるリッチスニペット対応</li>
+        <li>Google Analytics 連携による詳細なアクセス分析</li>
       </ul>
       <p>
-        これらを行う管理画面も、同じSupabaseデータベースに接続することで、ユーザーアプリとリアルタイムに連動します。管理画面で「承認」ボタンを押せば、即座にユーザーへ「予約確定」メールが送信される、といった本格的なシステム運用が可能になります。
+        これらの設定も、Antigravityに指示するだけで自動的に生成されます。検索エンジンに最適化されたブログが、わずか数分で完成します。
       </p>
 
       <h2 class="text-2xl font-bold mt-10 mb-4 text-black">まとめ</h2>
@@ -187,14 +179,25 @@ export const BLOG_POSTS: BlogPost[] = [
           「社内に開発リソースがない」「AIツールを使ったDX研修をしてほしい」 そんな課題をお持ちの方は、ぜひ私たちにご相談ください。 最新のAI開発プロセスで、御社のビジネスを加速させます。
         </p>
         
-        <!-- IMPORTANT -->
-        <div class="bg-red-50 border-red-200 text-gray-800 border-l-4 p-5 rounded-r-md text-sm md:text-base">
-          <div class="flex items-start">
-            <span class="font-bold mr-2 mt-0.5 text-red-800">IMPORTANT:</span>
+        <!-- IMPORTANT - Enhanced CTA Box -->
+        <div class="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-400 text-gray-900 p-6 rounded-lg shadow-lg my-8">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 text-3xl">⚠️</div>
             <div class="flex-1">
-              <div class="mb-2">無料相談・見積もりを依頼する <span class="text-xs text-gray-500 ml-1">※ 初回ヒアリングは無料です</span></div>
-              <a href="https://www.jeki-ddl.co.jp/contact/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-700 font-bold hover:underline">
-                👉 お問い合わせ
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="font-black text-xl text-red-700 uppercase tracking-wide">IMPORTANT</span>
+                <span class="text-sm text-gray-600 font-medium">初回ヒアリングは無料です 🎁</span>
+              </div>
+              <div class="text-base font-semibold text-gray-800 mb-4">
+                無料相談・見積もりを依頼する
+              </div>
+              <a 
+                href="https://www.jeki-ddl.co.jp/contact/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-center gap-2 bg-[#E09900] hover:bg-[#C88500] text-white font-bold px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+              >
+                お問い合わせ
               </a>
             </div>
           </div>
