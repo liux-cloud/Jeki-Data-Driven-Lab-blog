@@ -98,6 +98,43 @@ const PostDetailView: React.FC = () => {
             </span>
           </div>
 
+          {/* Schema.org Structured Data (JSON-LD) for SEO */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "description": post.subtitle || post.excerpt,
+              "image": post.imageUrl,
+              "datePublished": post.date,
+              "dateModified": post.date,
+              "author": {
+                "@type": "Person",
+                "name": post.author.name,
+                "jobTitle": post.author.role
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Jeki Data-Driven Lab",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://jeki-ddl.co.jp/logo.png"
+                }
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://jeki-ddl.co.jp/#/post/${post.id}`
+              },
+              "wordCount": post.content.replace(/<[^>]*>/g, '').length,
+              "timeRequired": `PT${readingTime}M`,
+              "interactionStatistic": {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/ReadAction",
+                "userInteractionCount": viewCount || 0
+              }
+            })}
+          </script>
+
           {/* Table of Contents */}
           <TableOfContents items={tocItems} />
 

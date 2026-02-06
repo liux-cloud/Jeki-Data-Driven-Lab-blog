@@ -1,0 +1,15 @@
+# Jeki Data-Driven Lab - robots.txt
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jeki-ddl.co.jp/sitemap.xml
+
+# Crawl delay (optional, adjust if needed)
+# Crawl-delay: 1
+
+# Disallow admin or private paths (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
