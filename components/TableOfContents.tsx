@@ -43,7 +43,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items }) => {
                                     href={`#${item.id}`}
                                     onClick={(e) => scrollToHeading(item.id, e)}
                                     className={`
-                    block py-3 hover:text-blue-600 transition-colors text-[16px] text-[#08131A]/65 font-['YakuHanJPs','Arial','Meiryo','sans-serif']
+                    block py-3 hover:text-[#16A34A] transition-colors text-[16px] text-[#08131A]/65 font-['YakuHanJPs','Arial','Meiryo','sans-serif']
                     ${item.level === 3 ? 'pl-8' : 'pl-2'}
                   `}
                                 >
