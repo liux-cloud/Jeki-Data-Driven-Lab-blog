@@ -1,29 +1,43 @@
 import { BlogPost, Tag, Author } from './types';
 
-export const AUTHORS: Record<string, Author> = {
+export const AUTHORS: Record<string, Author & { count?: number }> = {
+  hagiwara: {
+    name: '萩原 浩平',
+    role: 'プロジェクトマネージャー',
+    avatar: 'https://ui-avatars.com/api/?name=Kohei+Hagiwara&background=A0AEC0&color=fff',
+    count: 1
+  },
+  ikeda: {
+    name: '池田',
+    role: 'アナリスト',
+    avatar: 'https://ui-avatars.com/api/?name=Ikeda&background=4A5568&color=fff',
+    count: 2
+  },
+  ipponyagi: {
+    name: '一本柳 克弥',
+    role: 'エンジニア',
+    avatar: 'https://ui-avatars.com/api/?name=Katsuya+Ipponyagi&background=2D3748&color=fff',
+    count: 6
+  },
   nakamura: {
     name: '中村 甲一',
-    role: 'プロジェクトマネージャー',
-    avatar: 'https://ui-avatars.com/api/?name=Koichi+Nakamura&background=0D8ABC&color=fff'
-  },
-  ryusin: {
-    name: 'リュウシン',
-    role: 'エンジニア',
-    avatar: 'https://ui-avatars.com/api/?name=Ryusin&background=random'
-  },
-  generic: {
-    name: 'Nakamura',
-    avatar: 'https://ui-avatars.com/api/?name=Nakamura&background=333&color=fff'
+    role: 'アナリスト',
+    avatar: 'https://ui-avatars.com/api/?name=Koichi+Nakamura&background=1A202C&color=fff',
+    count: 11
   }
 };
 
 export const TAGS: Tag[] = [
-  { name: 'DX', count: 5 },
+  { name: 'DX', count: 2 },
   { name: 'Google BigQuery', count: 3 },
   { name: 'Google Cloud Functions', count: 2 },
-  { name: 'Google Studio', count: 1 },
-  { name: 'Google Analytics', count: 1 },
-  { name: 'Google Cloud', count: 2 },
+  { name: 'Google Cloud Storage', count: 2 },
+  { name: 'GoogleAnalytics4', count: 17 },
+  { name: 'GoogleSearchConsole', count: 1 },
+  { name: 'Looker Studio', count: 5 },
+  { name: 'Tableau', count: 2 },
+  { name: 'デジタルマーケティング', count: 21 },
+  { name: '広告', count: 3 },
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -155,6 +169,15 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ4：GitHubへのコードホスティング</h2>
       <p>ローカルで動いたアプリを、インターネットの世界に公開する準備をしましょう。</p>
 
+      <div class="my-8">
+        <img 
+          src="/github-repo-creation.png" 
+          alt="GitHub Repository Creation" 
+          class="w-full rounded-lg shadow-md border border-gray-100"
+        />
+        <p class="text-sm text-gray-500 mt-2 text-center italic">GitHubで新しい公開リポジトリを作成しましょう</p>
+      </div>
+
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">AIがGit操作もサポート</h4>
       <p>
         「Gitコマンドなんて分からない」という方も安心してください。AIに指示すれば、リポジトリの初期化からコミット、プッシュまでのコマンド（<code>git init, git add, git commit</code>）を教えてくれます。
@@ -172,6 +195,15 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>
         WinSCPでサーバーに接続後、ビルドされたファイル（<code>dist</code> フォルダの中身）をサーバーの公開ディレクトリ（例：<code>/var/www/html</code>）にアップロードします。数分後、設定したドメインからブログにアクセスできるようになります！
       </p>
+
+      <div class="my-8">
+        <img 
+          src="/analytics-result.png" 
+          alt="Blog Analytics Result" 
+          class="w-full rounded-lg shadow-md border border-gray-100"
+        />
+        <p class="text-sm text-gray-500 mt-2 text-center italic">実装された読了時間と閲覧数カウントのプレビュー（正確なSEO設定が反映されます）</p>
+      </div>
 
       <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ボーナス：SEO最適化とアナリティクス</h2>
       <p>公開したブログを多くの人に見てもらうために、SEO対策とアクセス解析も重要です。</p>
@@ -224,7 +256,7 @@ export const BLOG_POSTS: BlogPost[] = [
         </div>
       </div>
     `,
-    author: AUTHORS.ryusin,
+    author: AUTHORS.nakamura,
     date: '2024.10.15',
     imageUrl: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1000&auto=format&fit=crop',
     tags: ['DX', 'Google BigQuery', 'Google Cloud Functions'],
@@ -246,7 +278,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: '次世代クラウドアーキテクチャの展望',
     excerpt: 'サーバーレスからエッジコンピューティングまで、最新のトレンドを解説します。',
     content: 'Exploring the future of cloud computing...',
-    author: AUTHORS.ryusin,
+    author: AUTHORS.ipponyagi,
     date: '2026.02.07',
     imageUrl: 'https://picsum.photos/seed/cloud/800/450',
     tags: ['Google Cloud', 'Google Cloud Functions'],

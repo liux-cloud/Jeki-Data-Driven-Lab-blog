@@ -13,7 +13,7 @@ import { BlogPost } from './types';
 // Directory View Component
 const DirectoryView: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-8">
+    <div className="max-w-[940px] mx-auto px-4 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Main Content */}
         <div className="lg:col-span-8">

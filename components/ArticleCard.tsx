@@ -13,29 +13,29 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ post }) => {
         {/* Image */}
         <div className="w-full md:w-1/3 aspect-video md:aspect-[4/3] relative rounded-lg overflow-hidden shrink-0">
           <span className="absolute top-2 left-2 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded">16:9</span>
-          <img 
-            src={post.imageUrl} 
-            alt={post.title} 
+          <img
+            src={post.imageUrl}
+            alt={post.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        
+
         {/* Content */}
         <div className="flex-1 flex flex-col justify-center">
-          <div className="text-gray-500 text-sm mb-2 font-medium">{post.date}</div>
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-green-700 transition-colors">
+          <div className="text-gray-500 text-[14px] mb-1.5 font-medium">{post.date}</div>
+          <h2 className="text-[16px] font-bold text-gray-900 mb-2 leading-snug group-hover:text-[#1e3a5f] transition-colors">
             {post.title}
           </h2>
-          
-          <div className="flex items-center gap-3 mt-2">
-            <img 
-              src={post.author.avatar} 
-              alt={post.author.name} 
-              className="w-8 h-8 rounded-full"
+
+          <div className="flex items-center gap-3 mt-1.5">
+            <img
+              src={post.author.avatar}
+              alt={post.author.name}
+              className="w-7 h-7 rounded-full"
             />
-            <div className="text-sm">
-              <p className="font-medium text-gray-900">{post.author.name}</p>
-              <p className="text-gray-500 text-xs">{post.readTime}</p>
+            <div className="flex flex-col">
+              <p className="font-semibold text-gray-900 text-[13px] leading-tight">{post.author.name}</p>
+              <p className="text-gray-500 text-[11px] leading-tight mt-0.5">{post.readTime}</p>
             </div>
           </div>
         </div>

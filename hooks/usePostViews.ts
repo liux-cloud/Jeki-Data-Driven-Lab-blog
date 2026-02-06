@@ -29,10 +29,9 @@ export const usePostViews = (slug: string): UsePostViewsReturn => {
                 .from('post_views')
                 .select('view_count')
                 .eq('slug', slug)
-                .single();
+                .maybeSingle(); // Use maybeSingle to avoid 406 error in console
 
-            if (fetchError && fetchError.code !== 'PGRST116') {
-                // PGRST116 = no rows returned (post doesn't exist yet)
+            if (fetchError) {
                 throw fetchError;
             }
 
@@ -49,14 +48,17 @@ export const usePostViews = (slug: string): UsePostViewsReturn => {
     const incrementView = useCallback(async () => {
         if (!slug) return;
 
+        console.log(`Attempting to increment view for: ${slug}`);
         try {
             const { data, error: rpcError } = await supabase
                 .rpc('increment_view_count', { post_slug: slug });
 
             if (rpcError) {
+                console.error('RPC Error details:', rpcError);
                 throw rpcError;
             }
 
+            console.log('Increment successful, new count:', data);
             if (data !== null) {
                 setViewCount(data);
             }

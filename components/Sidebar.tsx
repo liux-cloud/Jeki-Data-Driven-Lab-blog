@@ -8,79 +8,64 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ variant = 'directory' }) => {
   const isDetail = variant === 'detail';
-  
-  // Style variations based on the screenshot differences
-  const headerClass = isDetail 
-    ? "bg-black text-white px-4 py-2 text-sm font-bold mb-0" 
-    : "text-lg font-bold mb-4 text-gray-800 px-1";
-    
-  const containerClass = isDetail
-    ? "bg-transparent"
-    : "bg-transparent";
 
-  const searchInputClass = isDetail
-    ? "w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-gray-400 bg-white"
-    : "w-full border border-gray-200 rounded-md py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white";
-
-  const tagListClass = isDetail
-    ? "bg-white border-t-0 border border-gray-200 divide-y divide-gray-100"
-    : "space-y-2";
-    
-  const tagItemClass = isDetail
-    ? "flex justify-between items-center p-3 text-sm hover:bg-gray-50 cursor-pointer"
-    : "flex justify-between items-center text-gray-600 hover:text-green-600 cursor-pointer text-sm px-1 py-1";
+  // Design from Figure 1: Black headers, sharp corners, boxed items
+  const headerClass = "bg-[#000000] text-white px-5 py-3 text-[15px] font-bold tracking-wider uppercase";
+  const widgetClass = "bg-[#F5F5F5] border border-gray-100 overflow-hidden";
+  const itemClass = "flex justify-between items-center px-5 py-3 text-[14px] bg-white border-b border-[#F0F0F0] hover:bg-[#FAFAFA] transition-colors last:border-b-0 cursor-pointer text-[#333]";
+  const countClass = "text-[#666] font-mono text-[13px]";
 
   return (
-    <div className={`space-y-8 ${containerClass}`}>
+    <div className="flex flex-col gap-8 w-full max-w-[320px] mx-auto lg:mx-0">
       {/* Search Widget */}
-      <div className={isDetail ? "" : "bg-white rounded-xl p-0"}>
-        {isDetail && <h3 className={headerClass}>Search</h3>}
-        <div className="relative">
-           {!isDetail && (
-            <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-          )}
-          <input 
-            type="text" 
-            placeholder={isDetail ? "Keywords..." : "Search..."} 
-            className={searchInputClass}
-          />
-           {isDetail && (
-            <Search className="absolute right-3 top-3 h-4 w-4 text-gray-400" />
-          )}
+      <div className={widgetClass}>
+        <h3 className={headerClass}>Search</h3>
+        <div className="p-4 bg-white">
+          <div className="relative group">
+            <input
+              type="text"
+              placeholder="Keywords..."
+              className="w-full border border-[#E5E5E5] p-3 pl-4 pr-10 text-[14px] focus:outline-none focus:border-gray-400 placeholder:text-gray-300 transition-colors"
+            />
+            <Search className="absolute right-3 top-3.5 h-4 w-4 text-gray-400 group-focus-within:text-gray-600" />
+          </div>
         </div>
       </div>
 
       {/* Tags Widget */}
-      <div className={isDetail ? "" : "bg-white rounded-xl"}>
+      <div className={widgetClass}>
         <h3 className={headerClass}>Tags</h3>
-        <div className={tagListClass}>
+        <div className="flex flex-col">
           {TAGS.map((tag) => (
-            <div key={tag.name} className={tagItemClass}>
-              <span>{tag.name}</span>
-              <span className="text-gray-400 text-xs">[{tag.count}]</span>
+            <div key={tag.name} className={itemClass}>
+              <span className="font-medium">{tag.name}</span>
+              <span className={countClass}>[{tag.count}]</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Writers Widget (Directory Only) */}
-      {!isDetail && (
-        <div className="bg-white rounded-xl px-1">
-          <h3 className={headerClass}>Writers</h3>
-          <div className="space-y-4">
-            {Object.values(AUTHORS).map((author, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <img 
-                  src={author.avatar} 
-                  alt={author.name} 
-                  className="w-8 h-8 rounded-full bg-gray-200"
-                />
-                <span className="text-sm font-medium text-gray-700">{author.name}</span>
+      {/* Writers Widget */}
+      <div className={widgetClass}>
+        <h3 className={headerClass}>Writers</h3>
+        <div className="flex flex-col">
+          {Object.values(AUTHORS).map((author, index) => (
+            <div key={index} className={itemClass}>
+              <div className="flex items-center gap-4">
+                <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 border border-gray-100 shadow-sm">
+                  <img
+                    src={author.avatar}
+                    alt={author.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-semibold text-[#333]">{author.name}</span>
               </div>
-            ))}
-          </div>
+              <span className={countClass}>[{author.count || 0}]</span>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
