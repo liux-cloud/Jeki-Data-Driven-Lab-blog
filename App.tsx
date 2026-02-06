@@ -53,7 +53,7 @@ const PostDetailView: React.FC = () => {
   const { viewCount, isLoading: viewsLoading } = usePostViews(post.id);
 
   return (
-    <div className="max-w-[1400px] mx-auto px-[15px] py-[50px]">
+    <div className="max-w-[1140px] mx-auto px-[15px] py-[50px]">
 
       {/* Breadcrumbs */}
       <div className="text-xs text-gray-400 mb-6 font-mono text-center lg:text-left">
@@ -62,7 +62,7 @@ const PostDetailView: React.FC = () => {
 
       <div className="flex flex-col lg:flex-row justify-center gap-[40px]">
         {/* Main Content */}
-        <article className="w-full lg:flex-1 max-w-[950px] bg-white border border-[#eee] p-[40px] rounded-sm">
+        <article className="w-full lg:flex-1 max-w-[800px] bg-white border border-[#eee] p-[40px] rounded-sm">
           {/* Hero Image */}
           <div className="w-full aspect-[2/1] bg-gray-200 mb-8 overflow-hidden rounded-sm">
             <img
@@ -139,10 +139,10 @@ const PostDetailView: React.FC = () => {
           <TableOfContents items={tocItems} />
 
           {/* Content Body */}
-          <div className="prose max-w-none text-[#08131A] [&_*]:text-left 
-            [&_p]:text-[18px] [&_p]:text-[#08131A] [&_p]:my-[36px] [&_p]:leading-[36px] [&_p]:font-['YakuHanJPs','Arial','Meiryo','sans-serif'] [&_p]:tracking-[0.03em] 
-            [&_li]:text-[18px] [&_li]:leading-[36px] [&_li]:mb-[16px] [&_li]:text-[#08131A] [&_li]:font-['YakuHanJPs','Arial','Meiryo','sans-serif']
-            [&_ol]:pl-[1.5rem] [&_ul]:pl-[1.5rem] [&_ol]:mb-[36px] [&_ul]:mb-[36px] 
+          <div className="prose max-w-none text-[#2D3436] [&_*]:text-left 
+            [&_p]:text-[17px] [&_p]:text-[#2D3436] [&_p]:my-[24px] [&_p]:leading-[1.75] [&_p]:font-['YakuHanJPs','Arial','Meiryo','sans-serif'] [&_p]:tracking-[0.03em] 
+            [&_li]:text-[17px] [&_li]:leading-[1.75] [&_li]:mb-[12px] [&_li]:text-[#2D3436] [&_li]:font-['YakuHanJPs','Arial','Meiryo','sans-serif']
+            [&_ol]:pl-[1.5rem] [&_ul]:pl-[1.5rem] [&_ol]:mb-[24px] [&_ul]:mb-[24px] 
             [&_h2]:text-[24px] [&_h2]:font-bold [&_h2]:mt-[48px] [&_h2]:mb-[24px] [&_h2]:text-black [&_h2]:leading-[1.4] 
             [&_h3]:text-[20px] [&_h3]:font-bold [&_h3]:mt-[40px] [&_h3]:mb-[20px] [&_h3]:text-black [&_h3]:leading-[1.4] 
             [&_blockquote]:border-l-4 [&_blockquote]:border-[#E5E7EB] [&_blockquote]:pl-4 [&_blockquote]:my-[36px] [&_blockquote]:italic [&_blockquote]:text-gray-600

@@ -62,6 +62,10 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>
         まずは「モバイルアプリ」か「PCウェブアプリ」を選択し、作りたいアプリのイメージ（例：「Jeki Data-Driven Lab ブログ（データ分析とマーケティングに関する知見を共有する技術ブログ）」）をテキストで入力するだけです。GoogleのImage 2.5やImage 3モデルが、あなたの言葉を瞬時にデザインへと変換します。
       </p>
+      <div class="my-6">
+        <img src="/images/stitch-interface.png" alt="Stitch Interface" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+        <p class="text-xs text-gray-400 mt-2 text-center">Stitchの直感的なデザイン生成画面</p>
+      </div>
       <p>
         さらにRedesign機能を使えば、参考にしたい既存のWebサイトやスクリーンショットを読み込ませて、「これと同じような雰囲気で」と指示することも可能です。
       </p>
@@ -71,6 +75,10 @@ export const BLOG_POSTS: BlogPost[] = [
       <ul class="list-disc pl-6 mb-6 text-black space-y-3">
         <li><strong class="text-black">AIチャット編集 (Add to chat):</strong> ページ全体に対して、「テキストをすべて日本語に変更して」「フォントをYakuHanJPsにして」といった指示を一括で適用できます。</li>
         <li><strong class="text-black">注釈による精密修正 (Annotate):</strong> ここがStitchの凄いところです。修正したい箇所を四角く囲んで（バウンディングボックス）、「記事カードの間隔を広げて」「サイドバーの幅を280pxに固定」といったピンポイントな指示が出せます。</li>
+        <div class="my-6">
+          <img src="/images/stitch-preview.png" alt="Stitch Annotate" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+          <p class="text-xs text-gray-400 mt-2 text-center">バウンディングボックスによる精密修正の様子</p>
+        </div>
         <li><strong class="text-black">テーマ編集 (Edit Theme):</strong> ダークモード/ライトモードの切り替えや、ブランドカラーの変更もワンクリックで完了。ヒートマップ予測機能を使えば、ユーザーがどこに注目するかをAIが分析してくれるので、UXの改善にも役立ちます。</li>
       </ul>
 
@@ -80,11 +88,19 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>
         Stitchで作ったページは、まだ「絵」の状態です。これを実際にクリックして動くアプリに変えるのが「AI Studio」です。
       </p>
+      <div class="my-6">
+        <img src="/images/ai-studio-interface.png" alt="AI Studio Interface" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+        <p class="text-xs text-gray-400 mt-2 text-center">AI Studioのプロンプトとプレビュー画面</p>
+      </div>
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">バラバラのページを一つに</h4>
       <p>
         Stitchで作成したすべてのページ（トップページ、記事一覧、記事詳細、サイドバーなど）を選択し、「Export to AI Studio」を実行します。これだけで、デザインがコードとしてAI Studioに渡されます。
       </p>
+      <div class="my-6">
+        <img src="/images/ai-studio-code.png" alt="AI Studio Code Generation" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+        <p class="text-xs text-gray-400 mt-2 text-center">生成されたReactコードの確認</p>
+      </div>
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">ア プリとしての命を吹き込む</h4>
       <p>
@@ -111,6 +127,10 @@ export const BLOG_POSTS: BlogPost[] = [
       <p>面倒なデータベース設定も、以下の3ステップで完了です。</p>
       <ol class="list-decimal pl-6 mb-6 text-black space-y-3">
         <li><strong class="text-black">プロジェクト作成:</strong> Supabaseで新規プロジェクトを作り、URLとAPIキーを取得。</li>
+        <div class="my-6">
+          <img src="/images/supabase-api-keys.png" alt="Supabase API Keys" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
+          <p class="text-xs text-gray-400 mt-2 text-center">Supabaseのプロジェクト設定画面（APIキーの取得）</p>
+        </div>
         <li><strong class="text-black">環境変数設定:</strong> Antigravityが用意した .env ファイルに、先ほどのURLとキーを貼り付け。</li>
         <li><strong class="text-black">テーブル一括作成:</strong> 生成された SQL をSupabaseのSQLエディタに貼り付けて実行。これだけで、「post_views（記事閲覧数）」テーブルが作成され、閲覧数のトラッキングが可能になります。</li>
       </ol>
