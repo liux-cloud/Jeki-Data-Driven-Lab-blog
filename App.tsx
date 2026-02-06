@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import ArticleCard from './components/ArticleCard';
+import ImageZoomOverlay from './components/ImageZoomOverlay';
 import TableOfContents from './components/TableOfContents';
 import { processContentWithTOC, calculateReadingTime } from './utils';
 import { usePostViews } from './hooks/usePostViews';
@@ -39,6 +40,16 @@ const DirectoryView: React.FC = () => {
 // Detail View Component
 const PostDetailView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [zoomedImage, setZoomedImage] = React.useState<{ src: string, alt: string } | null>(null);
+
+  // Handle image clicks in the prose area
+  const handleContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'IMG') {
+      const img = target as HTMLImageElement;
+      setZoomedImage({ src: img.src, alt: img.alt });
+    }
+  };
   // Default to the first post if id not found or provided, for demo purposes
   const post = BLOG_POSTS.find(p => p.id === id) || BLOG_POSTS[0];
 
@@ -139,7 +150,8 @@ const PostDetailView: React.FC = () => {
           <TableOfContents items={tocItems} />
 
           {/* Content Body */}
-          <div className="prose max-w-none text-[#2D3436] [&_*]:text-left 
+          <div
+            className="prose max-w-none text-[#2D3436] [&_*]:text-left 
             [&_p]:text-[17px] [&_p]:text-[#2D3436] [&_p]:my-[24px] [&_p]:leading-[1.75] [&_p]:font-['YakuHanJPs','Arial','Meiryo','sans-serif'] [&_p]:tracking-[0.03em] 
             [&_li]:text-[17px] [&_li]:leading-[1.75] [&_li]:mb-[12px] [&_li]:text-[#2D3436] [&_li]:font-['YakuHanJPs','Arial','Meiryo','sans-serif']
             [&_ol]:pl-[1.5rem] [&_ul]:pl-[1.5rem] [&_ol]:mb-[24px] [&_ul]:mb-[24px] 
@@ -147,13 +159,24 @@ const PostDetailView: React.FC = () => {
             [&_h3]:text-[20px] [&_h3]:font-bold [&_h3]:mt-[40px] [&_h3]:mb-[20px] [&_h3]:text-black [&_h3]:leading-[1.4] 
             [&_blockquote]:border-l-4 [&_blockquote]:border-[#E5E7EB] [&_blockquote]:pl-4 [&_blockquote]:my-[36px] [&_blockquote]:italic [&_blockquote]:text-gray-600
             [&_a]:text-[#1e3a5f] [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-slate-300 [&_a]:transition-colors [&_a:hover]:decoration-[#1e3a5f] 
-            [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-[40px] 
+            [&_img]:rounded-lg [&_img]:shadow-sm [&_img]:my-[40px] [&_img]:cursor-zoom-in [&_img]:transition-opacity [&_img:hover]:opacity-90
             [&_strong]:font-bold [&_strong]:text-[#08131A] 
             [&_hr]:border-gray-200 [&_hr]:my-[48px]
             [&_code]:bg-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-[0.9em] [&_code]:font-mono [&_code]:text-[#d63384]
-            [&_pre]:bg-[#f8f9fa] [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-[36px] [&_pre]:text-sm">
+            [&_pre]:bg-[#f8f9fa] [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-[36px] [&_pre]:text-sm"
+            onClick={handleContentClick}
+          >
             <div dangerouslySetInnerHTML={{ __html: processedContent }} />
           </div>
+
+          {/* Image Zoom Overlay */}
+          {zoomedImage && (
+            <ImageZoomOverlay
+              src={zoomedImage.src}
+              alt={zoomedImage.alt}
+              onClose={() => setZoomedImage(null)}
+            />
+          )}
 
           {/* Social Share Buttons */}
           <div className="mt-8 mb-12 flex flex-wrap gap-3">
