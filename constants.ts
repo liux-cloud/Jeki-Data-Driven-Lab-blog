@@ -125,30 +125,32 @@ export const BLOG_POSTS: BlogPost[] = [
       </ul>
       <p>この段階ではまだデータは保存されませんが、アプリの「ガワ」と「動き」は完全に出来上がります。</p>
 
-      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ3：Antigravityによるバックエンドとデータベースの構築</h2>
-      <h3 class="text-lg font-medium text-gray-500 mb-4 italic">Server and Database Architecture</h3>
+      <h2 class="text-2xl font-bold mt-10 mb-4 text-black">ステップ3：Antigravityによるバックエンドとデータベースの構築 (Docker)</h2>
+      <h3 class="text-lg font-medium text-gray-500 mb-4 italic">Server and Database Architecture via Docker</h3>
       
       <p>
-        ここからが本番です。フロントエンドのコードをもとに、「Antigravity」が裏側のロジックとデータベースを自動生成します。
+        ここからが本番です。フロントエンドのコードをもとに、「Antigravity」が裏側のロジックとデータベースを自動生成します。今回は柔軟性の高い「Docker」ベースのSupabase環境を構築します。
       </p>
 
       <h4 class="text-lg font-bold mt-6 mb-2 text-black">全自動の実行計画</h4>
       <p>
-        フロントエンドのコードをAntigravityにインポートするだけで、AIが必要なバックエンドAPI、データ構造、そしてSupabaseとの連携を含む「実行計画」を提示してくれます。
+        フロントエンドのコードをAntigravityにインポートするだけで、AIが必要なバックエンドAPI、データ構造、そしてDocker Composeによるコンテナ構成を含む「実行計画」を提示してくれます。
       </p>
 
-      <h4 class="text-lg font-bold mt-6 mb-2 text-black">Supabaseのセットアップ</h4>
-      <p>面倒なデータベース設定も、以下の3ステップで完了です。</p>
+      <h4 class="text-lg font-bold mt-6 mb-2 text-black">Supabase Docker環境のセットアップ</h4>
+      <p>Docker Hubから提供されている公式イメージを利用し、ローカルにフルスタックな開発環境を立ち上げます。</p>
+      
+      <div class="my-6">
+        <img src="/images/supabase-docker.png" alt="Supabase Docker Repositories" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200 cursor-zoom-in" />
+        <p class="text-xs text-gray-400 mt-2 text-center">Docker Hubで公開されているSupabase公式イメージ（postgres, auth, realtimeなど）</p>
+      </div>
+
       <ol class="list-decimal pl-6 mb-6 text-black space-y-3">
-        <li><strong class="text-black">プロジェクト作成:</strong> Supabaseで新規プロジェクトを作り、URLとAPIキーを取得。</li>
-        <div class="my-6">
-          <img src="/images/supabase-api-keys-protected.png" alt="Supabase API Keys" class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200" />
-          <p class="text-xs text-gray-400 mt-2 text-center">Supabaseのプロジェクト設定画面（APIキーの取得）</p>
-        </div>
-        <li><strong class="text-black">環境変数設定:</strong> Antigravityが用意した .env ファイルに、先ほどのURLとキーを貼り付け。</li>
-        <li><strong class="text-black">テーブル一括作成:</strong> 生成された SQL をSupabaseのSQLエディタに貼り付けて実行。これだけで、「post_views（記事閲覧数）」テーブルが作成され、閲覧数のトラッキングが可能になります。</li>
+        <li><strong class="text-black">イメージの取得:</strong> <code>docker-compose pull</code> コマンドで、データベース (PostgreSQL)、認証 (Auth)、リアルタイム通信 (Realtime) などの必要なイメージを一括取得します。</li>
+        <li><strong class="text-black">コンテナの起動:</strong> <code>docker-compose up -d</code> を実行。わずか数分で、ローカルマシン上に本番環境と同等のSupabaseスタックが立ち上がります。</li>
+        <li><strong class="text-black">テーブル作成とマイグレーション:</strong> 生成された SQL をローカルのマイグレーションツールで実行。これだけで「post_views（記事閲覧数）」テーブルが作成され、データの蓄積準備が整います。</li>
       </ol>
-      <p>最後に <code>npm run dev</code> コマンドを実行すれば、記事の閲覧数カウント、読了時間の表示まで、完全に機能するブログがローカル環境で動き出します。</p>
+      <p>最後に <code>npm run dev</code> を実行すれば、Docker上のデータベースと連携し、閲覧数カウントや読了時間がリアルタイムに動作するブログが完成します。</p>
 
       <!-- NOTE -->
       <div class="bg-gray-100 border-gray-300 text-gray-800 border-l-4 p-5 my-8 rounded-r-md text-sm md:text-base">
